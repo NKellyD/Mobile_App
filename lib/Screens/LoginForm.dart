@@ -35,7 +35,7 @@ class _LoginFormState extends State<LoginForm> {
     }else if(passwd.isEmpty){
       alertDialog(context, "Please Enter Password");
     }else{
-      await dbHelper.getLoginUser(uid,passwd).then((userData){
+     await  dbHelper.getLoginUser(uid,passwd).then((userData){
         if(userData != null) {
           Navigator.pushAndRemoveUntil(context,
               MaterialPageRoute(builder: (_) => HomeForm()),
@@ -49,6 +49,10 @@ class _LoginFormState extends State<LoginForm> {
         alertDialog(context, "Error: Login Fail");
     });
   }
+
+
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +75,7 @@ class _LoginFormState extends State<LoginForm> {
                 getTextFormField(controller: _conPassword,
                   icon: Icons.lock,
                   hintName: 'Password',
-                isObscueText: true,),
+                  isObscueText: true,),
 
                 Container(
                   margin: EdgeInsets.all(12),
@@ -83,26 +87,26 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     onPressed: Login,
                   ),
-                   decoration: BoxDecoration(
-                     color: Colors.teal,
-                     borderRadius: BorderRadius.circular(10)
-                   ),
+                  decoration: BoxDecoration(
+                      color: Colors.teal,
+                      borderRadius: BorderRadius.circular(10)
+                  ),
                 ),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Does not have account?'),
-                  ElevatedButton(
-                  child: Text(
-                  'SignUp',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: (){
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => SignupForm()));
-                  },
-                ),
+                      ElevatedButton(
+                        child: Text(
+                          'SignUp',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => SignupForm()));
+                        },
+                      ),
 
 
 
@@ -117,12 +121,6 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
-}
 
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
 
 }
