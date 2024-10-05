@@ -43,7 +43,7 @@ class PinPopupWidget extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    pubTextFormField(controller: pin, hintName: '',),
+                    getTextFormField(controller: pin, hintName: '',),
                     const SizedBox(
                       height: 20,
                     ),
